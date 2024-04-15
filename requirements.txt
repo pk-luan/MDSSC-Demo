@@ -1,0 +1,6 @@
+Flask
+
+lxml==4.9
+svglib==0.9.3
+reportlab
+rlPyCairo

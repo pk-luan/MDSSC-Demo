@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SVG to PNG Converter</title>
+    <!-- Include Bootstrap CSS via CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">SVG to PNG Converter</h1>
+        <div class="card mt-5">
+            <div class="card-body">
+                <form action="/convert" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="file">Select SVG File:</label>
+                        <input type="file" class="form-control-file" id="file" name="file" accept=".svg">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Convert</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Include Bootstrap JS via CDN -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
