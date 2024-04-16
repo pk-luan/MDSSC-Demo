@@ -1,26 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SVG to PNG Converter</title>
     <!-- Include Bootstrap CSS via CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom styles */
+        body {
+            /* background-image: url('background-image.jpg'); Add your background image URL */
+            background-color: burlywood;
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            color: #ffff; /* Text color */
+        }
+        .container {
+            padding: 20px; /* Add some padding */
+            margin-top: 50px; /* Add margin from the top */
+            margin-bottom: 50px;
+        }
+        
+        div.card {
+            padding: 20px;
+            margin: auto;
+        }
+        .custom-file-input {
+            color: transparent; /* Make text transparent */
+        }
+        .custom-file-input::-webkit-file-upload-button {
+            visibility: hidden; /* Hide default file upload button */
+        }
+        .custom-file-input::before {
+            content: 'Select SVG File'; /* Custom placeholder */
+            color: #ac1919; /* Text color */
+            background-color: #007bff; /* Button background color */
+            border: 1px solid #007bff; /* Border color */
+            border-radius: 5px; /* Rounded corners */
+            padding: 8px 12px; /* Padding */
+            display: inline-block;
+            cursor: pointer; /* Show pointer cursor */
+        }
+        .custom-file-input:hover::before {
+            background-color: #0056b3; /* Hover background color */
+        }
+        .custom-file-input:active::before {
+            background-color: #004f9b; /* Active background color */
+        }
+        .service-advertisement {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            border-radius: 5px; /* Rounded corners */
+            padding: 20px; /* Add padding */
+            margin-top: 20px; /* Add margin from the top */
+            text-align: center; /* Center align text */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-5">SVG to PNG Converter</h1>
+        <h1 class="mt-5 text-center">SVG to PNG Converter</h1>
         <div class="card mt-5">
             <div class="card-body">
                 <form action="/convert" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="file">Select SVG File:</label>
-                        <input type="file" class="form-control-file" id="file" name="file" accept=".svg">
+                        <label class="custom-file-label" for="file">Select SVG File:</label>
+                        <input type="file" class="custom-file-input" id="file" name="file" accept=".svg" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Convert</button>
+                    <button type="submit" class="btn btn-primary btn-block">Convert</button>
                 </form>
             </div>
         </div>
+        <div class="service-advertisement row mt-5">
+            <div class="col-md-4">
+                <h3>Easy to Use</h3>
+                <p>Convert your SVG files to PNG with just a few clicks. Our user-friendly interface makes the process simple and intuitive.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>High Quality</h3>
+                <p>Get high-quality PNG images every time you convert. We ensure that your SVG files are converted accurately without compromising on quality.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Fast Conversion</h3>
+                <p>Experience lightning-fast conversion speeds. Our advanced technology ensures speedy processing, so you can get your PNG images in no time.</p>
+            </div>
+        </div>
+        
     </div>
     <!-- Include Bootstrap JS via CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        
+        document.getElementById('file').addEventListener('change', function(e) {
+            var fileName = document.getElementById('file').files[0].name;
+            var label = document.querySelector('.custom-file-label');
+            label.innerText = 'SVG File Selected: ' + fileName;
+        });
+    </script>
 </body>
 </html>
